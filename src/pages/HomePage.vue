@@ -1,13 +1,17 @@
 <template>
-  <div class="p-8 text-center">
-    <h1 class="text-4xl font-bold text-blue-600">Home Page</h1>
+  <div>
+    <Hero />
+    <Features />
+    <Reviews />
   </div>
 </template>
 
-<script setup>
-// empty
-</script>
+<script>
+import Hero from '../components/Hero.vue'
+import Features from '../components/Features.vue'
+import Reviews from '../components/Reviews.vue'
 
-<style scoped>
-/* optional extra styling */
-</style>
+export default {
+  components: {Hero, Features, Reviews }
+}
+</script>

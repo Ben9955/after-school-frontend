@@ -1,21 +1,24 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from './pages/HomePage.vue'
-import LessonsPage from './pages/LessonsPage.vue'
-import LessonDetail from './pages/LessonDetail.vue'
+import ClassesPage from './pages/ClassesPage.vue'
+import ClassDetailPage from './pages/ClassDetailPage.vue'
 import CartPage from './pages/CartPage.vue'
-import OrderConfirmation from './pages/OrderConfirmation.vue'
+import OrderConfirmationPage from './pages/OrderConfirmationPage.vue'
+import AboutPage from './pages/AboutPage.vue'
 
 const routes = [
-  { path: '/', component: HomePage, name: 'Home' },
-  { path: '/classes', component: LessonsPage, name: 'Lessons' },
-  { path: '/classes/:id', component: LessonDetail, name: 'LessonDetail', props: true },
-  { path: '/cart', component: CartPage, name: 'Cart' },
-  { path: '/order-confirmation', component: OrderConfirmation, name: 'OrderConfirmation' }
+  { path: '/', name: 'Home', component: HomePage },
+  { path: '/classes', name: 'Classes', component: ClassesPage },
+  { path: '/class/:id', name: 'ClassDetail', component: ClassDetailPage },
+  { path: '/cart', name: 'Cart', component: CartPage },
+  { path: '/confirmation', name: 'OrderConfirmation', component: OrderConfirmationPage },
+  { path: '/about', name: 'About', component: AboutPage },
 ]
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
 })
 
 export default router
+
