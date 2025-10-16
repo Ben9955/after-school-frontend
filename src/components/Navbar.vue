@@ -174,7 +174,6 @@ export default {
   color: #3b82f6;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .menu.desktop-menu {
     display: none;
