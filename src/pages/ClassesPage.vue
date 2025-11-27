@@ -3,7 +3,15 @@
     <div class="container">
       <h1 class="page-title">Available Classes</h1>
 
-      <!-- Sort Controls -->
+      <div class="search-bar">
+        <input 
+          type="text" 
+          v-model="searchQuery" 
+          @input="searchLessons"
+          placeholder="Search lessons..."
+        >
+      </div>
+
       <div class="sort-controls">
         <label>
           Sort by:
@@ -24,7 +32,6 @@
         </label>
       </div>
 
-      <!-- Lessons Grid -->
       <div class="lessons-grid">
         <div v-for="lesson in sortedLessons" :key="lesson.id" class="lesson-card">
           <router-link :to="`/class/${lesson.id}`" class="lesson-link">
@@ -52,6 +59,7 @@ export default {
     return {
       sortBy: "subject",
       sortOrder: "asc",
+      searchQuery: ""
     };
   },
   computed: {
@@ -65,18 +73,28 @@ export default {
           valB = valB.toLowerCase();
         }
 
-        return this.sortOrder === "asc" ? (valA > valB ? 1 : -1) : (valA < valB ? 1 : -1);
+        return this.sortOrder === "asc"
+          ? valA > valB ? 1 : -1
+          : valA < valB ? 1 : -1;
       });
     }
   },
-
   mounted() {
-    store.fetchLessons(); 
+    store.fetchLessons();
   },
-
   methods: {
     addToCart(lesson) {
       store.addToCart(lesson);
+    },
+    async searchLessons() {
+      if (!this.searchQuery.trim()) {
+        store.fetchLessons();
+        return;
+      }
+
+      const res = await fetch(`http://localhost:4001/api/lessons/search?q=${this.searchQuery}`);
+      const data = await res.json();
+      store.setLessons(data.map(l => ({ ...l, id: l._id })));
     }
   }
 };
@@ -95,6 +113,20 @@ export default {
   font-weight: 700;
   margin-bottom: 2rem;
   color: #111827;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.search-bar input {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
 }
 
 .sort-controls {
@@ -146,17 +178,17 @@ export default {
 }
 
 .lesson-icon {
-  width: 120px;        
-  height: 120px;        
-  object-fit: cover;    
-  border-radius: 12px;  
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
   margin-bottom: 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   transition: transform 0.3s;
 }
 
 .lesson-link:hover .lesson-icon {
-  transform: scale(1.05); 
+  transform: scale(1.05);
 }
 
 .lesson-card h3 {
@@ -191,3 +223,4 @@ export default {
   cursor: not-allowed;
 }
 </style>
+
