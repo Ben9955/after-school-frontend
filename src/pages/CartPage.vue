@@ -51,6 +51,7 @@ export default {
       name: "",
       phone: "",
       confirmation: "",
+      isSubmitting: false
     };
   },
   computed: {
@@ -67,12 +68,56 @@ export default {
     removeFromCart(id) {
       store.removeFromCart(id);
     },
-    submitOrder() {
-      this.confirmation = `Thank you ${this.name}! Your order has been submitted.`;
+  async submitOrder() {
+    if (this.isSubmitting) return; 
+    this.isSubmitting = true;
+
+    try {
+      //Post the order
+      const orderBody = {
+        name: this.name,
+        phone: this.phone,
+        lessons: this.cartItems.map(item => ({
+          lessonId: item.lesson._id,
+          qty: item.qty
+        }))
+      };
+
+      const orderRes = await fetch("http://localhost:4001/api/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(orderBody)
+      });
+
+      const savedOrder = await orderRes.json();
+
+      // Update lesson spaces
+      for (const item of this.cartItems) {
+        await fetch(`http://localhost:4001/api/lessons/${item.lesson._id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            spaces: Math.max(item.lesson.spaces - item.qty, 0)
+          })
+        });
+      }
+
+      // Clear cart & show confirmation
       store.clearCart();
-      this.name = "";
-      this.phone = "";
-    },
+      this.$router.push({ 
+        name: "OrderConfirmation",
+        query: { 
+          customerName: this.name, 
+          orderId: savedOrder._id 
+        }
+      });
+
+    } catch (err) {
+      console.error("Order submission failed:", err);
+    } finally {
+      this.isSubmitting = false;
+    }
+  }
   },
 };
 </script>

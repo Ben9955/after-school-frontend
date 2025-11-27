@@ -11,10 +11,14 @@
       </ul>
 
       <!-- Cart Icon -->
-      <router-link to="/cart" class="cart-icon">
+      <div
+        class="cart-icon"
+        :class="{ disabled: cartCount === 0 }"
+        @click="onCartClick"        
+      >
         <i class="fas fa-shopping-cart"></i>
         <span v-if="cartCount > 0" class="cart-badge">{{ cartCount }}</span>
-      </router-link>
+      </div>
 
       <!-- Mobile Hamburger -->
       <div class="hamburger" @click="toggleMenu">
@@ -35,15 +39,17 @@
 
 <script>
 import store from "../store/store.js";
-import { computed } from "vue";
 
 export default {
   data() {
-    return { showMenu: false };
+    return {
+      showMenu: false,
+    };
   },
-  setup() {
-    const cartCount = computed(() => store.cartCount.value);
-    return { cartCount };
+  computed: {
+    cartCount() {
+      return store.cartCount.value;
+    },
   },
   methods: {
     toggleMenu() {
@@ -52,7 +58,18 @@ export default {
     closeMenu() {
       this.showMenu = false;
     },
-  },
+  toggleCart() {
+      if (this.$route.path === "/cart") {
+        this.$router.push("/classes");
+      } else {
+        this.$router.push("/cart");
+      }
+    },
+    onCartClick() {
+      if (this.cartCount === 0) return;
+      this.toggleCart();
+    }
+  }
 };
 </script>
 
@@ -107,6 +124,14 @@ export default {
   color: #111827;
   margin-left: 1.5rem;
   text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s, cursor 0.2s;
+}
+
+.cart-icon.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .cart-badge {

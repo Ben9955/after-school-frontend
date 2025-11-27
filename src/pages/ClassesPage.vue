@@ -69,6 +69,11 @@ export default {
       });
     }
   },
+
+  mounted() {
+    store.fetchLessons(); 
+  },
+
   methods: {
     addToCart(lesson) {
       store.addToCart(lesson);
@@ -117,11 +122,11 @@ export default {
 }
 
 .lesson-card {
-  flex: 1 1 220px;
-  max-width: 250px;
+  flex: 1 1 260px;
+  max-width: 280px;
   background: #f9fafb;
   border-radius: 10px;
-  padding: 1.5rem;
+  padding: 2rem;
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -141,9 +146,17 @@ export default {
 }
 
 .lesson-icon {
-  width: 60px;
-  height: 60px;
+  width: 120px;        
+  height: 120px;        
+  object-fit: cover;    
+  border-radius: 12px;  
   margin-bottom: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+  transition: transform 0.3s;
+}
+
+.lesson-link:hover .lesson-icon {
+  transform: scale(1.05); 
 }
 
 .lesson-card h3 {
