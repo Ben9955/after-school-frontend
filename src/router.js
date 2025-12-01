@@ -16,8 +16,8 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
-  routes,
+  history: createWebHistory('/after-school-frontend/'),
+  routes
 })
 
 export default router
