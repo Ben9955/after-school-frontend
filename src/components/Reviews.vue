@@ -6,7 +6,7 @@
         <div class="review-card">
           <p>"My child loves these classes! The teachers are fantastic and lessons are engaging."</p>
           <div class="reviewer">
-            <img src="https://cdn.pixabay.com/photo/2016/11/29/13/14/attractive-1869761_1280.jpg" alt="Parent 1">
+            <img src="/images/person1.jpg" alt="Parent 1">
             <span>Francesca Doe</span>
           </div>
         </div>
@@ -14,7 +14,7 @@
         <div class="review-card">
           <p>"The flexible schedule makes it easy for us to fit lessons into our busy week."</p>
           <div class="reviewer">
-            <img src="https://cdn.pixabay.com/photo/2015/08/14/15/28/smiling-888532_1280.jpg" alt="Parent 2">
+            <img src="/images/person2.jpg" alt="Parent 2">
             <span>Mark Smith</span>
           </div>
         </div>
@@ -22,7 +22,7 @@
         <div class="review-card">
           <p>"Great variety of classes. My child has learned so much and even earned a certificate!"</p>
           <div class="reviewer">
-            <img src="https://cdn.pixabay.com/photo/2017/08/26/11/18/model-2682792_1280.jpg" alt="Parent 3">
+            <img src="/images/person3.jpg" alt="Parent 3">
             <span>Lisa Wong</span>
           </div>
         </div>

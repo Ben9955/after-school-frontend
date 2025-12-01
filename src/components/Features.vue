@@ -4,25 +4,25 @@
       <h2 class="section-title">Our Features</h2>
       <div class="features-grid">
         <div class="feature-card">
-          <img src="https://media.istockphoto.com/id/1267271995/photo/girl-in-headscarf-having-online-lesson-on-laptop-at-cafe.jpg?s=2048x2048&w=is&k=20&c=uzEfZQS0W-muvE-USa9P50x94eu3SBQ5FlWvd3gDAgU=" alt="Online Classes" class="feature-icon">
+          <img src="/images/image1.jpg" alt="Online Classes" class="feature-icon">
           <h3>Online Classes</h3>
           <p>Access a wide range of lessons from the comfort of your home, anytime.</p>
         </div>
 
         <div class="feature-card">
-          <img src="https://cdn.pixabay.com/photo/2024/09/12/21/20/ai-generated-9043367_1280.png" alt="Professional Teachers" class="feature-icon">
+          <img src="/images/image2.png" alt="Professional Teachers" class="feature-icon">
           <h3>Professional Teachers</h3>
           <p>Learn from experienced instructors who guide students every step of the way.</p>
         </div>
 
         <div class="feature-card">
-          <img src="https://media.istockphoto.com/id/2188188739/photo/planning-and-scheduling-meeting-calendars-activities-time-management-notifications-and.jpg?s=2048x2048&w=is&k=20&c=BrADMPMZE3DCRRQkFsoTU4KAk86JwkYrVFFKaSueCp8=" alt="Flexible Schedule" class="feature-icon">
+          <img src="/images/image3.jpg" alt="Flexible Schedule" class="feature-icon">
           <h3>Flexible Schedule</h3>
           <p>Choose classes that fit your schedule, morning, afternoon, or evening.</p>
         </div>
 
         <div class="feature-card">
-          <img src="https://media.istockphoto.com/id/1904641522/photo/the-companys-product-quality-certificate-is-compliant-the-check-mark-symbol-represents-the.jpg?s=2048x2048&w=is&k=20&c=NtUc7ezRs9UW4lI-u337iFIguUWXC3nhAj4-M6agtVo=" alt="Certificates" class="feature-icon">
+          <img src="/images/image4.jpg" alt="Certificates" class="feature-icon">
           <h3>Certificates</h3>
           <p>Receive a certificate upon completion to showcase your child’s achievements.</p>
         </div>

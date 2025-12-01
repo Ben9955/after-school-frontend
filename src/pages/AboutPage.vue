@@ -38,17 +38,17 @@
       <h2>Meet Our Team</h2>
       <div class="team-grid">
         <div class="team-member">
-          <img src="https://via.placeholder.com/150" alt="Team member">
+          <img src="/images/person1.jpg" alt="Team member">
           <h3>Jane Smith</h3>
           <p>Founder & CEO</p>
         </div>
         <div class="team-member">
-          <img src="https://via.placeholder.com/150" alt="Team member">
+          <img src="/images/person2.jpg" alt="Team member">
           <h3>John Doe</h3>
           <p>Head of Operations</p>
         </div>
         <div class="team-member">
-          <img src="https://via.placeholder.com/150" alt="Team member">
+          <img src="/images/person3.jpg" alt="Team member">
           <h3>Emily Johnson</h3>
           <p>Lead Developer</p>
         </div>

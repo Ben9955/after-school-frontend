@@ -129,7 +129,6 @@ export default {
   background-color: #fdfdfd;
 }
 
-/* Page title */
 .page-title {
   text-align: center;
   font-size: 2rem;
@@ -138,7 +137,6 @@ export default {
   color: #111827;
 }
 
-/* Cart table */
 .cart-table {
   display: flex;
   flex-direction: column;
