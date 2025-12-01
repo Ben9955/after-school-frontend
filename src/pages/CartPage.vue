@@ -83,7 +83,7 @@ export default {
         }))
       };
 
-      const orderRes = await fetch("http://localhost:4001/api/orders", {
+      const orderRes = await fetch("https://after-school-backend-564j.onrender.com/api/orders", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(orderBody)
@@ -93,7 +93,7 @@ export default {
 
       // Update lesson spaces
       for (const item of this.cartItems) {
-        await fetch(`http://localhost:4001/api/lessons/${item.lesson._id}`, {
+        await fetch(`https://after-school-backend-564j.onrender.com/api/lessons/${item.lesson._id}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

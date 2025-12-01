@@ -92,7 +92,7 @@ export default {
         return;
       }
 
-      const res = await fetch(`http://localhost:4001/api/lessons/search?q=${this.searchQuery}`);
+      const res = await fetch(`https://after-school-backend-564j.onrender.com/api/lessons/search?q=${this.searchQuery}`);
       const data = await res.json();
       store.setLessons(data.map(l => ({ ...l, id: l._id })));
     }

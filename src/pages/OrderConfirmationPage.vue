@@ -48,7 +48,7 @@ export default {
   mounted() {
     const orderId = this.$route.query.orderId;
     if (orderId) {
-      fetch(`http://localhost:4001/api/orders/${orderId}`)
+      fetch(`https://after-school-backend-564j.onrender.com/api/orders/${orderId}`)
         .then(res => {
           if (!res.ok) throw new Error("Order not found");
           return res.json();

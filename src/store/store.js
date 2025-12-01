@@ -10,7 +10,7 @@ const cartCount = computed(() => Object.values(state.cart).reduce((sum, e) => su
 
 async function fetchLessons() {
   try {
-    const res = await fetch("http://localhost:4001/api/lessons"); 
+    const res = await fetch("https://after-school-backend-564j.onrender.com/api/lessons"); 
     console.log("Fetch lessons response:", res);
     const data = await res.json();
     console.log("Fetched lessons data:", data);
