@@ -40,7 +40,7 @@ export default {
   name: "ClassDetailPage",
   setup() {
     const route = useRoute();
-    const lessonId = Number(route.params.id);
+    const lessonId = route.params.id;
 
     const lesson = computed(() =>
       store.state.lessons.find(l => l.id === lessonId)
